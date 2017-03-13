@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<map>
+  <room>
+    <name>Classroom</name>
+    <item>Lecture Note</item>
+    <description>Room - Classroom</description>
+    <border>
+      <direction>north</direction>
+      <name>Exam Room</name>
+    </border>
+    <border>
+      <direction>east</direction>
+      <name>MSEE 189</name>
+    </border>
+  </room>
+  <room>
+    <name>Exam Room</name>
+    <description>Room - Exam Room</description>
+    <border>
+      <direction>south</direction>
+      <name>Classroom</name>
+    </border>
+    <border>
+      <direction>north</direction>
+      <name>Project Demo Room</name>
+    </border>
+    <creature>Creature Polymorphism</creature>
+  </room>
+  <room>
+    <type>exit</type>
+    <name>Project Demo Room</name>
+    <description>Room - Project Demo Room</description>
+    <border>
+      <name>Exam Room</name>
+      <direction>south</direction>
+    </border>
+  </room>
+  <room>
+  	<name>MSEE 189</name>
+  	<description>Room - MSEE 189</description>
+  	<container>rapid xml box</container>
+  	<border>
+  		<direction>west</direction>
+  		<name>Classroom</name>
+  	</border>
+  </room>
+  <item>
+    <writing>Notes on Virtual Function Table</writing>
+    <name>Lecture Note</name>
+  </item>
+  <item>
+    <name>xml parser</name>
+  </item>
+  <item>
+  	<name>Message</name>
+  	<writing>Congrats! You have completed the project! The professor need to give you an A in this project. Type "open exit" in the Project Demo Room to win the game.</writing>
+  </item>
+  <container>
+  	<name>rapid xml box</name>
+  	<item>xml parser</item>
+  </container>
+  <creature>
+  	<name>Creature Polymorphism</name>
+  	<vulnerability>Lecture Note</vulnerability>
+  	<attack>
+  	  <print>You defeated Polymorphism and got a good grade on the exam. Now let's work on the Zork project.</print>
+  	  <action>Delete Creature Polymorphism</action>
+  	  <action>Add The Zork Project to Project Demo Room</action>
+  	</attack>
+  </creature>
+  <creature>
+  	<name>The Zork Project</name>
+  	<vulnerability>xml parser</vulnerability>
+  	<trigger>
+  		<command>attack The Zork Project with xml parser</command>
+  		<condition>
+  			<owner>inventory</owner>
+  			<has>yes</has>
+  			<object>xml parser</object>
+  		</condition>
+  		<action>Add Message to Project Demo Room</action>
+  	</trigger>
+  </creature>
+</map>
